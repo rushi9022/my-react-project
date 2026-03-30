@@ -6,7 +6,7 @@ const Amenities = () => {
     { icon: 'wifi', title: 'Fast & Free Wi-Fi' },
     { icon: 'bowl-food', title: 'Global Flavors' },
     { icon: 'car-side', title: 'Easy Arrival' },
-    { icon: 'sparkles', title: 'Fresh & Clean' },
+    { icon: 'wand-magic-sparkles', title: 'Fresh & Clean' },
     { icon: 'couch', title: 'The Chill Spot' }
   ];
 

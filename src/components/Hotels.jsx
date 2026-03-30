@@ -18,7 +18,7 @@ const Hotels = ({ setModalData }) => {
               <h3>SR Hotel</h3>
               <span className="prop-location">Wakad, Pune</span>
               <p>Experience the pinnacle of business luxury. Located in the heart of Wakad, SR Hotel offers sophisticated suites and world-class amenities for the discerning traveler.</p>
-              <div className="property-buttons" style={{ display: 'flex', gap: '15px' }}>
+              <div className="property-buttons">
                 <a href="https://maps.google.com/?q=SR+Hotel+Wakad+Pune" target="_blank" rel="noreferrer" className="btn-luxury">Location</a>
                 <button className="btn-luxury btn-outline view-details-btn" onClick={(e) => { e.stopPropagation(); setModalData('sr-hotel'); document.body.style.overflow = "hidden"; }}>Check availability</button>
               </div>
@@ -30,7 +30,7 @@ const Hotels = ({ setModalData }) => {
               <h3>Marvel Hotel</h3>
               <span className="prop-location">Viman Nagar, Pune</span>
               <p>Minutes away from Pune Airport and Phoenix Market City. Marvel Hotel combines modern elegance with unparalleled convenience for both business and leisure.</p>
-              <div className="property-buttons" style={{ display: 'flex', gap: '15px' }}>
+              <div className="property-buttons">
                 <a href="https://maps.google.com/?q=Marvel+Hotel+Viman+Nagar+Pune" target="_blank" rel="noreferrer" className="btn-luxury">Location</a>
                 <button className="btn-luxury btn-outline view-details-btn" onClick={(e) => { e.stopPropagation(); setModalData('marvel-hotel'); document.body.style.overflow = "hidden"; }}>Check availability</button>
               </div>
@@ -48,7 +48,7 @@ const Hotels = ({ setModalData }) => {
               <h3>Esta Stays</h3>
               <span className="prop-location">Viman Nagar, Pune</span>
               <p>A serene escape nestled in the lush greenery of Viman Nagar. Esta Stays is your luxury retreat featuring premium spa facilities and signature hospitality.</p>
-              <div className="property-buttons" style={{ display: 'flex', gap: '15px' }}>
+              <div className="property-buttons">
                 <a href="https://maps.google.com/?q=Esta+Stays+Viman+Nagar+Pune" target="_blank" rel="noreferrer" className="btn-luxury">Location</a>
                 <button className="btn-luxury btn-outline view-details-btn" onClick={(e) => { e.stopPropagation(); setModalData('esta-stays'); document.body.style.overflow = "hidden"; }}>Check availability</button>
               </div>

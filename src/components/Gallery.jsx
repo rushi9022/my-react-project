@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 
 const Gallery = ({ galIndex, setGalIndex }) => {
   const galleryImages = [
@@ -13,6 +13,61 @@ const Gallery = ({ galIndex, setGalIndex }) => {
     { src: 'image 6.jpeg', title: 'Grand Lobby', desc: 'Elegant Welcome' }
   ];
   const totalSlides = galleryImages.length;
+  const sliderRef = useRef(null);
+  const [slideWidth, setSlideWidth] = React.useState(500);
+
+  useEffect(() => {
+    const updateWidth = () => {
+      if (window.innerWidth <= 768) {
+        const containerWidth = document.querySelector('.gallery-container')?.clientWidth || window.innerWidth;
+        setSlideWidth(containerWidth * 0.85); // Takes up 85% of mobile screen perfectly
+      } else {
+        setSlideWidth(500); // Default luxury wide-slide desktop scale
+      }
+    };
+    
+    updateWidth();
+    // Re-calculate slider bounds if the user rotates their phone
+    window.addEventListener('resize', updateWidth);
+    return () => window.removeEventListener('resize', updateWidth);
+  }, []);
+
+  useEffect(() => {
+    const slider = sliderRef.current;
+    if (!slider) return;
+
+    let startX = 0;
+    let startY = 0;
+
+    const handleDragStart = (e) => e.preventDefault();
+
+    const handleTouchStart = (e) => {
+      startX = e.touches[0].clientX;
+      startY = e.touches[0].clientY;
+    };
+
+    const handleTouchMove = (e) => {
+      // Only prevent default if movement is horizontal!
+      const xDiff = Math.abs(e.touches[0].clientX - startX);
+      const yDiff = Math.abs(e.touches[0].clientY - startY);
+
+      // Disable horizontal swipes specifically to preserve vertical scroll
+      if (xDiff > yDiff) {
+        e.preventDefault();
+      }
+    };
+
+    // Prevent drag events
+    slider.addEventListener("dragstart", handleDragStart);
+    slider.addEventListener("touchstart", handleTouchStart, { passive: true });
+    slider.addEventListener("touchmove", handleTouchMove, { passive: false });
+
+    return () => {
+      slider.removeEventListener("dragstart", handleDragStart);
+      slider.removeEventListener("touchstart", handleTouchStart);
+      slider.removeEventListener("touchmove", handleTouchMove);
+    };
+  }, []);
 
   return (
     <section id="gallery" className="section-padding fade-up">
@@ -24,9 +79,18 @@ const Gallery = ({ galIndex, setGalIndex }) => {
         </div>
         <div className="gallery-wrapper reveal">
           <div className="gallery-container">
-            <div className="gallery-slider" style={{ transform: `translateX(calc(50% - 250px - ${galIndex * 500}px))` }}>
+            <div
+              className="gallery-slider"
+              ref={sliderRef}
+              style={{ transform: `translateX(calc(50% - (${slideWidth}px / 2) - (${galIndex} * ${slideWidth}px)))` }}
+            >
               {galleryImages.map((img, i) => (
-                <div className={`gallery-slide ${galIndex === i ? 'active' : ''}`} key={i} onClick={() => setGalIndex(i)}>
+                <div 
+                  className={`gallery-slide ${galIndex === i ? 'active' : ''}`} 
+                  key={i} 
+                  onClick={() => setGalIndex(i)}
+                  style={{ flex: `0 0 ${slideWidth}px`, maxWidth: '100%' }}
+                >
                   <div className="gallery-card">
                     <img src={`/images/${img.src}`} alt={img.title} />
                     <div className="gallery-overlay">
