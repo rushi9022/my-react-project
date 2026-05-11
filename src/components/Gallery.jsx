@@ -3,7 +3,6 @@ import React, { useRef, useEffect } from 'react';
 const Gallery = ({ galIndex, setGalIndex }) => {
   const galleryImages = [
     { src: 'SR_hotel _image.png', title: 'Hotel Exterior', desc: 'Wakad — SR Hotel' },
-    { src: 'Marvel_Hotel_image.png', title: 'Hotel Exterior', desc: 'Viman Nagar — Marvel Hotel' },
     { src: 'Esta Stays_image.png', title: 'Hotel Exterior', desc: 'Viman Nagar — Esta Stays' },
     { src: 'image 1.jpeg', title: 'Luxury Room', desc: 'Premium Living Experience' },
     { src: 'image 2.jpeg', title: 'Signature Dining', desc: 'Global Flavors & Cuisine' },
@@ -25,7 +24,7 @@ const Gallery = ({ galIndex, setGalIndex }) => {
         setSlideWidth(500); // Default luxury wide-slide desktop scale
       }
     };
-    
+
     updateWidth();
     // Re-calculate slider bounds if the user rotates their phone
     window.addEventListener('resize', updateWidth);
@@ -85,9 +84,9 @@ const Gallery = ({ galIndex, setGalIndex }) => {
               style={{ transform: `translateX(calc(50% - (${slideWidth}px / 2) - (${galIndex} * ${slideWidth}px)))` }}
             >
               {galleryImages.map((img, i) => (
-                <div 
-                  className={`gallery-slide ${galIndex === i ? 'active' : ''}`} 
-                  key={i} 
+                <div
+                  className={`gallery-slide ${galIndex === i ? 'active' : ''}`}
+                  key={i}
                   onClick={() => setGalIndex(i)}
                   style={{ flex: `0 0 ${slideWidth}px`, maxWidth: '100%' }}
                 >

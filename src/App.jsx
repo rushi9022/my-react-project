@@ -9,6 +9,7 @@ import Gallery from './components/Gallery';
 import Contact from './components/Contact';
 import Feedback from './components/Feedback';
 import Footer from './components/Footer';
+import GalleryModal from './components/GalleryModal';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
@@ -29,6 +30,7 @@ const App = () => {
   const [hoverRating, setHoverRating] = useState(0);
   const [feedbackSuccess, setFeedbackSuccess] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [galleryModal, setGalleryModal] = useState({ isOpen: false, propertyName: '' });
 
   useEffect(() => {
     // Scroll Reveals
@@ -84,6 +86,7 @@ const App = () => {
       if (e.key === "Escape") {
         setViewerImg(null);
         setModalData(null);
+        setGalleryModal({ isOpen: false, propertyName: '' });
         document.body.style.overflow = "auto";
       }
     };
@@ -141,7 +144,7 @@ const App = () => {
       <Navbar />
       <Hero />
       <About />
-      <Hotels setModalData={setModalData} />
+      <Hotels setModalData={setModalData} setGalleryModal={setGalleryModal} />
       <Amenities />
       <Testimonials tIndex={tIndex} />
       <Gallery galIndex={galIndex} setGalIndex={setGalIndex} />
@@ -157,6 +160,14 @@ const App = () => {
         resetFeedback={resetFeedback} 
       />
       <Footer />
+
+      {/* Property Gallery Modal */}
+      <GalleryModal 
+        isOpen={galleryModal.isOpen} 
+        onClose={() => { setGalleryModal({ isOpen: false, propertyName: '' }); document.body.style.overflow = "auto"; }}
+        propertyName={galleryModal.propertyName}
+        setViewerImg={setViewerImg}
+      />
 
       {/* Room Availability Modal */}
       <div className={`modal ${modalData ? 'active' : ''}`} onClick={(e) => { if (e.target.classList.contains('modal')) { setModalData(null); document.body.style.overflow = "auto"; } }}>
