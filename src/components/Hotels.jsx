@@ -21,7 +21,6 @@ const Hotels = ({ setModalData, setGalleryModal }) => {
               <div className="property-buttons">
                 <a href="https://maps.google.com/?q=SR+Hotel+Wakad+Pune" target="_blank" rel="noreferrer" className="btn-luxury">Location</a>
                 <button className="btn-luxury btn-outline" onClick={() => { setGalleryModal({ isOpen: true, propertyName: 'SR Hotel' }); document.body.style.overflow = "hidden"; }}>Gallery</button>
-                <button className="btn-luxury btn-outline view-details-btn" onClick={(e) => { e.stopPropagation(); setModalData('sr-hotel'); document.body.style.overflow = "hidden"; }}>Check availability</button>
               </div>
             </div>
           </div>
@@ -34,7 +33,6 @@ const Hotels = ({ setModalData, setGalleryModal }) => {
               <div className="property-buttons">
                 <a href="https://maps.google.com/?q=Marvel+Hotel+Viman+Nagar+Pune" target="_blank" rel="noreferrer" className="btn-luxury">Location</a>
                 <button className="btn-luxury btn-outline" onClick={() => { setGalleryModal({ isOpen: true, propertyName: 'Marvel Hotel' }); document.body.style.overflow = "hidden"; }}>Gallery</button>
-                <button className="btn-luxury btn-outline view-details-btn" onClick={(e) => { e.stopPropagation(); setModalData('marvel-hotel'); document.body.style.overflow = "hidden"; }}>Check availability</button>
               </div>
             </div>
             <div className="property-img">
@@ -53,7 +51,6 @@ const Hotels = ({ setModalData, setGalleryModal }) => {
               <div className="property-buttons">
                 <a href="https://maps.google.com/?q=Esta+Stays+Viman+Nagar+Pune" target="_blank" rel="noreferrer" className="btn-luxury">Location</a>
                 <button className="btn-luxury btn-outline" onClick={() => { setGalleryModal({ isOpen: true, propertyName: 'Esta Stays' }); document.body.style.overflow = "hidden"; }}>Gallery</button>
-                <button className="btn-luxury btn-outline view-details-btn" onClick={(e) => { e.stopPropagation(); setModalData('esta-stays'); document.body.style.overflow = "hidden"; }}>Check availability</button>
               </div>
             </div>
           </div>
