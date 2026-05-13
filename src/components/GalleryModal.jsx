@@ -99,6 +99,33 @@ const propertyGalleries = {
       { src: "/images/esta/Common Area3.jpg", alt: "Sitting Lounge" },
     ]
   },
+  "Marvel Hotel": {
+    "Room": [
+      { src: "/images/fab hotel bliss/room1.avif", alt: "Deluxe Room" },
+      { src: "/images/fab hotel bliss/room2.avif", alt: "Premium Room" },
+      { src: "/images/fab hotel bliss/room3.webp", alt: "Executive Room" },
+      { src: "/images/fab hotel bliss/room4.avif", alt: "Modern Stay" },
+      { src: "/images/fab hotel bliss/room6.webp", alt: "Comfort Room" },
+      { src: "/images/fab hotel bliss/room7.avif", alt: "Guest Suite" },
+      { src: "/images/fab hotel bliss/room8.jpg", alt: "Luxury Room" },
+      { src: "/images/fab hotel bliss/room9.jpg", alt: "Standard Room" },
+    ],
+    "Facade": [
+      { src: "/images/fab hotel bliss/facade1.avif", alt: "Hotel Exterior" },
+      { src: "/images/fab hotel bliss/facade2.webp", alt: "Main Entrance" },
+      { src: "/images/fab hotel bliss/facade3.webp", alt: "Day View" },
+      { src: "/images/fab hotel bliss/facade4.avif", alt: "Architectural Detail" },
+      { src: "/images/fab hotel bliss/facade5.avif", alt: "Street View" },
+    ],
+    "Washroom": [
+      { src: "/images/fab hotel bliss/washroom.avif", alt: "Modern Bathroom" },
+    ],
+    "Common Area": [
+      { src: "/images/fab hotel bliss/Common Area1.webp", alt: "Lounge Area" },
+      { src: "/images/fab hotel bliss/Common Area2.avif", alt: "Reception Lounge" },
+      { src: "/images/fab hotel bliss/Common Area3.avif", alt: "Sitting Area" },
+    ]
+  },
   // Default/Placeholders for other hotels
   "default": {
     "Room": [{ src: "/images/image 1.jpeg", alt: "Luxury Room" }],
